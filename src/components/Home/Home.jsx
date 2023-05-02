@@ -1,5 +1,16 @@
+import ChefCard from "../ChefCard/ChefCard";
+import HeroSection from "../HeroSection/HeroSection";
+
 const Home = () => {
-  return <div>This is Home. coming soon....</div>;
+  return (
+    <>
+      <HeroSection />
+      <ChefCard />
+      <ChefCard />
+      <ChefCard />
+      <ChefCard />
+    </>
+  );
 };
 
 export default Home;
