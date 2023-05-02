@@ -5,10 +5,12 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <ChefCard />
-      <ChefCard />
-      <ChefCard />
-      <ChefCard />
+      <div className="grid gap-5 grid-cols-1 md:grid-cols-3 items-center mx-auto w-fit">
+        <ChefCard />
+        <ChefCard />
+        <ChefCard />
+        <ChefCard />
+      </div>
     </>
   );
 };
