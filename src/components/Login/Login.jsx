@@ -45,7 +45,7 @@ const Login = () => {
               </h2>
               <p className="text-gray-600 text-center">
                 Don't have an account?{" "}
-                <Link to="/login" className="text-blue-500 hover:underline">
+                <Link to="/register" className="text-blue-500 hover:underline">
                   Sign up
                 </Link>
               </p>
