@@ -1,6 +1,8 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import { toast } from "react-toastify";
 const RecipeCard = () => {
+  const [favBtnDisabled, setFavBtnDisabled] = useState(false);
   const sampleRecipe = {
     recipe_name: "Classic Spaghetti Bolognese",
     ingredients: [
@@ -23,16 +25,8 @@ const RecipeCard = () => {
     favorite: false,
   };
   const handleHeart = () => {
-    toast.success("Yey, Toast showing", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.success("❤️ The recipe is your favorite");
+    setFavBtnDisabled(true);
   };
   return (
     <>
@@ -59,6 +53,7 @@ const RecipeCard = () => {
             </p>
             <button
               onClick={handleHeart}
+              disabled={favBtnDisabled}
               className="text-violet-600 hover:text-violet-700 flex items-center justify-center"
             >
               <HeartIcon className="w-6 h-6" />
