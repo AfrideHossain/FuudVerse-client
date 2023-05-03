@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContextProvider";
 
 function Register() {
   const [error, setError] = useState(null);
+  const { signUpWithEmail } = useContext(AuthContext);
 
   const handleEmailSignUp = (e) => {
     e.preventDefault();
@@ -26,6 +28,19 @@ function Register() {
       return;
     }
     console.log(username, photoURL, email, password);
+    // signUpWithEmail(email, password)
+    //   .then((result) => {
+    //     console.log(result);
+    //     updateUserProfile(username, photoURL).then((result) => {
+    //       console.log(result);
+    //     }).catch(err => {
+    //       console.log(err)
+    //     })
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
+    signUpWithEmail(email, password, username, photoURL);
   };
   return (
     <>
