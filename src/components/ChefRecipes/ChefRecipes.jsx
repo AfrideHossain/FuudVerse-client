@@ -1,4 +1,5 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
+import RecipeCard from "../RecipeCard/RecipeCard";
 const ChefRecipes = () => {
   const chefSampleImg = `https://raw.githubusercontent.com/AfrideHossain/images/main/chef/female-chef-chopping-vegetables-kitchen.jpg`;
   return (
@@ -38,6 +39,13 @@ const ChefRecipes = () => {
               </p>
             </div>
           </div>
+        </div>
+        {/* recipe cards */}
+        <div className="grid gap-5 grid-cols-1 items-center mx-auto w-fit">
+          <RecipeCard />
+          <RecipeCard />
+          <RecipeCard />
+          <RecipeCard />
         </div>
       </div>
     </>
