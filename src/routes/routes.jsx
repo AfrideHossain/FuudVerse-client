@@ -3,6 +3,7 @@ import Main from "../components/Layout/Main";
 import Home from "../components/Home/Home";
 import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Login from "../components/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "chefrecipes",
         element: <ChefRecipes />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
