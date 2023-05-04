@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo/FuudVerse.png";
 import { useContext, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -35,19 +35,22 @@ const Navbar = () => {
           <div className="flex items-center gap-5 grow justify-center">
             <div className="flex items-center space-x-2">
               <div>
-                <Link to="/" className="text-base font-semibold text-gray-700">
+                <NavLink
+                  to="/"
+                  className="text-base font-semibold text-gray-700"
+                >
                   Home
-                </Link>
+                </NavLink>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <div>
-                <Link
+                <NavLink
                   to="/blog"
                   className="text-base font-semibold text-gray-700"
                 >
                   Blog
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>
@@ -77,21 +80,6 @@ const Navbar = () => {
                 </p>
               </Link>
             )}
-            {/* <Link
-              to="/login"
-              className="bg-blue-500 text-white rounded-full py-2 px-4 flex items-center space-x-2"
-            >
-              <p className="text-bas font-semibold text-white">
-                Login/Register
-              </p>
-            </Link>
-            <div className="w-12 h-12 rounded-full">
-              <img
-                className="w-full rounded-full"
-                src={personImgUrl}
-                alt="Profile Picture"
-              />
-            </div> */}
           </div>
         </nav>
       </div>

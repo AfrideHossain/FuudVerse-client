@@ -5,6 +5,8 @@ import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import Blog from "../components/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +19,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "chefrecipes",
-        element: <ChefRecipes />,
+        path: "chefrecipes/:id",
+        element: (
+          <PrivateRoute>
+            <ChefRecipes />
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
@@ -27,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
     ],
   },

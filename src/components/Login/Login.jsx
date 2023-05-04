@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContextProvider";
 const Login = () => {
-  const navigate = useNavigate();
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const targetLocation = location.state?.from?.pathname || "/";
 
   const { loginWithEmail, googleSignIn, githubSignIn } =
     useContext(AuthContext);
@@ -11,7 +13,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(() => {
-        navigate("/");
+        navigate(targetLocation, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
@@ -20,7 +22,7 @@ const Login = () => {
   const handleGithubLogin = () => {
     githubSignIn()
       .then(() => {
-        navigate("/");
+        navigate(targetLocation, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
@@ -33,7 +35,7 @@ const Login = () => {
     const password = form.password.value;
     loginWithEmail(email, password)
       .then(() => {
-        navigate("/");
+        navigate(targetLocation, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
