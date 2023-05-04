@@ -14,7 +14,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((err) => {
-        setError(err);
+        setError(err.message);
       });
   };
   const handleGithubLogin = () => {
@@ -23,7 +23,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((err) => {
-        setError(err);
+        setError(err.message);
       });
   };
   const handleEmailLogin = (e) => {
@@ -36,7 +36,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((err) => {
-        setError(err);
+        setError(err.message);
       });
   };
   return (

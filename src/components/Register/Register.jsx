@@ -27,19 +27,6 @@ function Register() {
       setError("Please provide all information to continue");
       return;
     }
-    console.log(username, photoURL, email, password);
-    // signUpWithEmail(email, password)
-    //   .then((result) => {
-    //     console.log(result);
-    //     updateUserProfile(username, photoURL).then((result) => {
-    //       console.log(result);
-    //     }).catch(err => {
-    //       console.log(err)
-    //     })
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
     signUpWithEmail(email, password, username, photoURL);
   };
   return (
