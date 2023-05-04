@@ -1,10 +1,35 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContextProvider";
 const Login = () => {
+  const navigate = useNavigate();
   const [error, setError] = useState("");
-  const handleGoogleLogin = () => {};
+
+  const { loginWithEmail, googleSignIn } = useContext(AuthContext);
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
   const handleGithubLogin = () => {};
-  const handleEmailLogin = () => {};
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginWithEmail(email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
   return (
     <>
       <div className="w-screen h-screen flex flex-col gap-3 justify-center items-center bg-gray-100">
@@ -44,7 +69,7 @@ const Login = () => {
                 Sign In
               </h2>
               <p className="text-gray-600 text-center">
-                Don't have an account?{" "}
+                {"Don't have an account? "}
                 <Link to="/register" className="text-blue-500 hover:underline">
                   Sign up
                 </Link>
