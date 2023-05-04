@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -20,6 +21,7 @@ const AuthContextProvider = ({ children }) => {
 
   // auth providers
   const googleProvider = new GoogleAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
 
   const signUpWithEmail = (email, password, username, photourl) => {
     setLoading(true);
@@ -42,6 +44,10 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+  const githubSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, gitHubProvider);
+  };
 
   const logOut = () => {
     return signOut(auth);
@@ -60,6 +66,7 @@ const AuthContextProvider = ({ children }) => {
     signUpWithEmail,
     loginWithEmail,
     googleSignIn,
+    githubSignIn,
     logOut,
     user,
     loading,

@@ -5,7 +5,8 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  const { loginWithEmail, googleSignIn } = useContext(AuthContext);
+  const { loginWithEmail, googleSignIn, githubSignIn } =
+    useContext(AuthContext);
 
   const handleGoogleLogin = () => {
     googleSignIn()
@@ -16,7 +17,15 @@ const Login = () => {
         setError(err);
       });
   };
-  const handleGithubLogin = () => {};
+  const handleGithubLogin = () => {
+    githubSignIn()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
   const handleEmailLogin = (e) => {
     e.preventDefault();
     const form = e.target;
