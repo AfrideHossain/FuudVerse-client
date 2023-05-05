@@ -21,3 +21,6 @@
   box-sizing: border-box;
 }
 
+.active {
+  @apply text-violet-400;
+}

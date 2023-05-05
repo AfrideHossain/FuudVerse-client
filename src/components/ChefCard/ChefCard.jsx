@@ -1,9 +1,10 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 const ChefCard = (props) => {
-  const { id, chefName, yearsOfExperience, numRecipes, likes } = props.chef;
+  const { id, chefName, yearsOfExperience, numRecipes, likes, chefImg } =
+    props.chef;
   HeartIcon;
-  const chefSampleImg = `https://raw.githubusercontent.com/AfrideHossain/images/main/chef/female-chef-chopping-vegetables-kitchen.jpg`;
+  const chefSampleImg = chefImg;
   return (
     <div className="bg-gray-100 w-fit p-4 rounded-lg shadow-md border border-violet-100">
       <div>

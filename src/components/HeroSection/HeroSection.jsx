@@ -15,14 +15,18 @@ const HeroSection = () => {
           mouthwatering recipes from around the globe.
         </p>
         <Link
-          to="/"
+          to="/login"
           className="bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-md py-3 px-5 flex items-center justify-center space-x-2"
         >
           Get Started
         </Link>
       </div>
       <div>
-        <img className="w-72 rounded-full drop-shadow-lg" src={foodImg} alt="Hero Image" />
+        <img
+          className="w-72 rounded-full drop-shadow-lg"
+          src={foodImg}
+          alt="Hero Image"
+        />
       </div>
     </div>
   );
